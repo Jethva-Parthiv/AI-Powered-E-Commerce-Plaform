@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI E-Commerce</title>
+</head>
+<body>
+    <header>
+        <h1>My Shop</h1>
+        <nav>
+            <form method="get" action="{% url 'search' %}">
+                <input type="text" name="q" placeholder="Search products...">
+                <button type="submit">Search</button>
+            </form>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>
