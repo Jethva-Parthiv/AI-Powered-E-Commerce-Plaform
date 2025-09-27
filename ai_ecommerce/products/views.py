@@ -34,3 +34,8 @@ def checkout(request):
         cart.delete()  # clear cart
         return render(request, 'products/order_success.html', {'order': order})
     return render(request, 'products/checkout.html', {'cart': cart})
+
+
+def product_detail(request, pk):
+    product = get_object_or_404(Product, pk=pk)
+    return render(request, "products/product_detail.html", {"product": product})
