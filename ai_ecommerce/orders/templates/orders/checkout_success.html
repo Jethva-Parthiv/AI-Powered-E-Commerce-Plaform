@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="alert alert-success">
+    ✅ Order placed successfully!  
+    Your order ID is <strong>{{ order.id }}</strong>.
+</div>
+<a href="/" class="btn btn-primary">Back to Shop</a>
+{% endblock %}

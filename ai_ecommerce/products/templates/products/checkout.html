@@ -1,9 +1,0 @@
-{% extends "base.html" %}
-{% block content %}
-<h2>Checkout</h2>
-<p>Total: ₹{{ cart.total_price }}</p>
-<form method="post">
-    {% csrf_token %}
-    <button type="submit">Confirm Order</button>
-</form>
-{% endblock %}

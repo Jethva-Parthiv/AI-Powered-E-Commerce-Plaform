@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from products.models import Product
 from .models import CartItem
+from decimal import Decimal
 
 @login_required
 def add_to_cart(request, product_id):

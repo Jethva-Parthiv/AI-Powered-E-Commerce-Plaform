@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Checkout</h2>
+
+{% if error %}
+    <div class="alert alert-warning">{{ error }}</div>
+{% else %}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart_items %}
+                <tr>
+                    <td>{{ item.product.name }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td>₹{{ item.product.price }}</td>
+                    <td>₹{{ item.subtotal|floatformat:2 }}</td>
+                </tr>
+            {% endfor %}
+            <!-- Subtotal row -->
+            <tr>
+                <td colspan="3" class="text-end"><strong>Subtotal</strong></td>
+                <td><strong>₹{{ cart_total|floatformat:2 }}</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-success">Place Order</button>
+    </form>
+{% endif %}
+{% endblock %}
