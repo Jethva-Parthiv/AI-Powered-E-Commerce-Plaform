@@ -1,8 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="alert alert-success">
-    ✅ Order placed successfully!  
-    Your order ID is <strong>{{ order.id }}</strong>.
+    <h2>Order Placed Successfully 🎉</h2>
+    <p>Order ID: <strong>#{{ order.id }}</strong></p>
+    <p>Status: <span class="badge bg-success">{{ order.status }}</span></p>
+    <p>Payment Method: {{ order.get_payment_method_display }}</p>
+    <a href="/" class="btn btn-primary mt-3">Continue Shopping</a>
 </div>
-<a href="/" class="btn btn-primary">Back to Shop</a>
 {% endblock %}
